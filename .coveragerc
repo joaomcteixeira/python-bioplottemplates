@@ -5,7 +5,7 @@ source = src
 branch = true
 source =
     src
-    tests
+#    tests
 parallel = true
 
 [report]
