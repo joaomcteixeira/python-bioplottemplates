@@ -5,6 +5,11 @@ env:
   global:
     - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
     - SEGFAULT_SIGNALS=all
+addons:
+  apt:
+    packages:
+      - libenchant-dev
+
 matrix:
   include:
     - python: '3.7'
