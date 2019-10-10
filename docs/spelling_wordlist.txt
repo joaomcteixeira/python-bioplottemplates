@@ -9,3 +9,12 @@ kwargs
 callstack
 Changelog
 Indices
+
+Joao
+Teixeira
+
+docstrings
+
+bioplottemplates
+tox
+Tox
