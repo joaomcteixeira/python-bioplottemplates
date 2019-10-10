@@ -39,7 +39,7 @@ extlinks = {
 # codecov links are ignored here for the same reason there's a sleep            
 # in the .travis.yml file                                                       
 # see https://github.com/codecov/codecov-python/issues/158                      
-linkcheck_ignore = [r'https://codecov.io/gh/joaomcteixeira/python-project-skeleton/*']
+linkcheck_ignore = [r'https://codecov.io/*']
 
 
 import sphinx_py3doc_enhanced_theme

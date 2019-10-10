@@ -30,7 +30,7 @@ Overview
 
 .. |coveralls| image:: https://coveralls.io/repos/joaomcteixeira/python-bioplottemplates/badge.svg?branch=master&service=github
     :alt: Coverage Status
-    :target: https://coveralls.io/r/joaomcteixeira/python-bioplottemplates
+    :target: https://coveralls.io/github/joaomcteixeira/python-bioplottemplates
 
 .. |codecov| image:: https://codecov.io/github/joaomcteixeira/python-bioplottemplates/coverage.svg?branch=master
     :alt: Coverage Status
