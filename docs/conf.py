@@ -34,6 +34,14 @@ extlinks = {
     'issue': ('https://github.com/joaomcteixeira/python-bioplottemplates/issues/%s', '#'),
     'pr': ('https://github.com/joaomcteixeira/python-bioplottemplates/pull/%s', 'PR #'),
 }
+
+# codecov io closes connection if host is accessed too repetitively.            
+# codecov links are ignored here for the same reason there's a sleep            
+# in the .travis.yml file                                                       
+# see https://github.com/codecov/codecov-python/issues/158                      
+linkcheck_ignore = [r'https://codecov.io/gh/joaomcteixeira/python-project-skeleton/*']
+
+
 import sphinx_py3doc_enhanced_theme
 html_theme = "sphinx_py3doc_enhanced_theme"
 html_theme_path = [sphinx_py3doc_enhanced_theme.get_html_theme_path()]
