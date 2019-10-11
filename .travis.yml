@@ -17,6 +17,9 @@ matrix:
         - TOXENV=check
     - python: '3.7'
       env:
+        - TOXENV=safety
+    - python: '3.7'
+      env:
         - TOXENV=spell
     - python: '3.7'
       env:
