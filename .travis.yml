@@ -5,10 +5,6 @@ env:
   global:
     - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
     - SEGFAULT_SIGNALS=all
-addons:
-  apt:
-    packages:
-      - libenchant-dev
 
 matrix:
   include:
@@ -21,6 +17,10 @@ matrix:
     - python: '3.7'
       env:
         - TOXENV=spell
+      addons:
+        apt:
+          packages:
+            - libenchant-dev
     - python: '3.7'
       env:
         - TOXENV=docs
@@ -65,9 +65,6 @@ matrix:
       python: '3.7'
     - os: osx
       language: generic
-      addons:
-        homebrew:
-          update: true
       env:
         - TOXENV=py37-nocov
     - env:
@@ -93,7 +90,7 @@ before_install:
   - lsb_release -a || true
   - |
     if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
-      #[[ $TOXENV =~ py3 ]] && brew upgrade python
+      [[ $TOXENV =~ py3 ]] && brew upgrade python
       #[[ $TOXENV =~ py2 ]] && brew install python@2
       export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
     fi
