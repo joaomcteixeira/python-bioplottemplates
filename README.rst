@@ -64,9 +64,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/bioplottemplates
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/joaomcteixeira/python-bioplottemplates/v0.0.2.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/joaomcteixeira/python-bioplottemplates/v0.0.3.svg
     :alt: Commits since latest release
-    :target: https://github.com/joaomcteixeira/python-bioplottemplates/compare/v0.0.2...master
+    :target: https://github.com/joaomcteixeira/python-bioplottemplates/compare/v0.0.3...master
 
 .. |PyPI-downloads| image:: https://img.shields.io/pypi/dd/bioplottemplates?label=PyPI%20download
     :alt: PyPI - Downloads
