@@ -21,4 +21,4 @@ Changelog
 
 * First release on PyPI.
 
-.. _PR164`: https://github.com/ionelmc/cookiecutter-pylibrary/pull/164
+.. _PR164: https://github.com/ionelmc/cookiecutter-pylibrary/pull/164
