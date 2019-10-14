@@ -12,10 +12,10 @@ Overview
     * - tests
       - | |travis| |appveyor|
         | |coveralls| |codecov|
-        | |codacy| |codeclimate|
+        | |codacy| |codeclimate| |technical-debt|
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
-        | |commits-since|
+        | |commits-since| |PyPI-downloads|
 .. |docs| image:: https://readthedocs.org/projects/python-bioplottemplates/badge/?style=flat
     :target: https://readthedocs.org/projects/python-bioplottemplates
     :alt: Documentation Status
@@ -41,8 +41,12 @@ Overview
     :alt: Codacy Code Quality Status
 
 .. |codeclimate| image:: https://codeclimate.com/github/joaomcteixeira/python-bioplottemplates/badges/gpa.svg
-   :target: https://codeclimate.com/github/joaomcteixeira/python-bioplottemplates
-   :alt: CodeClimate Quality Status
+    :target: https://codeclimate.com/github/joaomcteixeira/python-bioplottemplates
+    :alt: CodeClimate Quality Status
+
+.. |technica-debt| image:: https://img.shields.io/codeclimate/tech-debt/joaomcteixeira/python-bioplottemplates
+    :target: https://codeclimate.com/github/joaomcteixeira/python-bioplottemplates
+    :alt: Code Climate technical debt
 
 .. |version| image:: https://img.shields.io/pypi/v/bioplottemplates.svg
     :alt: PyPI Package latest release
@@ -64,13 +68,13 @@ Overview
     :alt: Commits since latest release
     :target: https://github.com/joaomcteixeira/python-bioplottemplates/compare/v0.0.2...master
 
-
+.. |PyPI-downloads| image:: https://img.shields.io/pypi/dd/bioplottemplates?label=PyPI%20download
+    :alt: PyPI - Downloads
+    :target: https://pypi.org/project/bioplottemplates
 
 .. end-badges
 
 Plotting templates common in biological sciences.
-
-* Free software: MIT license
 
 Installation
 ============
@@ -98,19 +102,10 @@ To run the all tests run::
 
     tox
 
-Note, to combine the coverage data from all the tox environments run:
+Deployment
+==========
 
-.. list-table::
-    :widths: 10 90
-    :stub-columns: 1
-
-    - - Windows
-      - ::
-
-            set PYTEST_ADDOPTS=--cov-append
-            tox
-
-    - - Other
-      - ::
-
-            PYTEST_ADDOPTS=--cov-append tox
+```
+python setup.py clean --all sdist bdist_wheel
+twine upload --skip-existing dist/*.whl dist/*.gz
+```
