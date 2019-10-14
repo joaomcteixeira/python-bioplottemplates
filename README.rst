@@ -44,7 +44,7 @@ Overview
     :target: https://codeclimate.com/github/joaomcteixeira/python-bioplottemplates
     :alt: CodeClimate Quality Status
 
-.. |technica-debt| image:: https://img.shields.io/codeclimate/tech-debt/joaomcteixeira/python-bioplottemplates
+.. |technical-debt| image:: https://img.shields.io/codeclimate/tech-debt/joaomcteixeira/python-bioplottemplates
     :target: https://codeclimate.com/github/joaomcteixeira/python-bioplottemplates
     :alt: Code Climate technical debt
 
@@ -102,10 +102,3 @@ To run the all tests run::
 
     tox
 
-Deployment
-==========
-
-```
-python setup.py clean --all sdist bdist_wheel
-twine upload --skip-existing dist/*.whl dist/*.gz
-```
