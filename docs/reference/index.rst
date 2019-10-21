@@ -4,4 +4,5 @@ Reference
 .. toctree::
     :glob:
 
-    bioplottemplates*
+    bioplottemplates
+    plots
