@@ -23,6 +23,7 @@ def plot(
         legend=True,
         legend_fs=6,
         legend_loc=4,
+        vert_lines=None,
         filename='plot_param.pdf',
         **kwargs
         ):
@@ -94,7 +95,10 @@ def plot(
             linewidth=grid_lw,
             alpha=grid_alpha,
             )
-    
+    if isinstance(vert_lines, (list, tuple)):
+        for line in vert_lines:
+            ax.axvline(x=float(line), color='k')
+
     if legend:
         ax.legend(
             fontsize=legend_fs,
