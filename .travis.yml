@@ -44,12 +44,12 @@ matrix:
 #    - env:
 #        - TOXENV=py34-nocov
 #      python: '3.4'
-#    - env:
-#        - TOXENV=py35-cover,codecov,coveralls
-#      python: '3.5'
-#    - env:
-#        - TOXENV=py35-nocov
-#      python: '3.5'
+    - env:
+        - TOXENV=py35-cover,codecov,coveralls
+      python: '3.5'
+    - env:
+        - TOXENV=py35-nocov
+      python: '3.5'
     - env:
         - TOXENV=py36-cover,codecov,coveralls
       python: '3.6'
