@@ -1,8 +1,9 @@
+"""Plot a single parameter."""
 from matplotlib import pyplot as plt
 
 from bioplottemplates import log
-from bioplottemplates.logger import S, T
 from bioplottemplates.libs import libmsg
+from bioplottemplates.logger import S, T
 
 
 def plot(
@@ -28,7 +29,7 @@ def plot(
         **kwargs
         ):
     """
-    Plots a single plot with the combined RMSD.
+    Plot a single plot with the combined RMSD.
     
     Bellow parameters concern data representation and are considered
     of highest importance because their incorrect use can mislead

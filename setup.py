@@ -71,7 +71,7 @@ setup(
         'biology',
         'structural-biology',
         ],
-    python_requires='==3.6.*, ==3.7.*',
+    python_requires='>=3.6',
     install_requires=[
         'matplotlib>=3',
     ],
