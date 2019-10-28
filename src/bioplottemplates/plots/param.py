@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 
 from bioplottemplates import log
-from bioplottemplates.logger import T, S
+from bioplottemplates.logger import S, T
 from bioplottemplates.libs import libmsg
 
 
@@ -60,7 +60,7 @@ def plot(
         You can change the file type by specifying its extention in
         the file name.
     """
-    log.info(S("plotting combined Chain RMSDs"))
+    log.info(T("Plotting parameter:"))
     
     fig, ax = plt.subplots(nrows=1, ncols=1)
     

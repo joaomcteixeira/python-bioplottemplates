@@ -34,6 +34,7 @@ class Path(type(_Path())):
 
     Avoids using os.fspath around libs.
     """
+
     def str(self):
         """Return string version of Path."""
         return os.fspath(self)
