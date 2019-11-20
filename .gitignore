@@ -1,6 +1,9 @@
 *.py[cod]
 __pycache__
 
+# developers
+*.swp
+
 # C extensions
 *.so
 
