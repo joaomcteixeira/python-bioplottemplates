@@ -4,7 +4,7 @@
 class TitleLog:
     """Format string to title."""
 
-    def __init__(self, msg, args):
+    def __init__(self, msg, *args):
         self.msg = msg.title()
         self.args = args
 
@@ -19,7 +19,7 @@ class SubLog:
     This format performs nicely under the `TitleLog` formatting.
     """
     
-    def __init__(self, msg, args):
+    def __init__(self, msg, *args):
         self.msg = msg
         self.args = args
     
