@@ -1,8 +1,11 @@
 """Plot a single parameter."""
+import itertools
+import numpy as np
+
 from matplotlib import pyplot as plt
 
 from bioplottemplates import log
-from bioplottemplates.libs import libmsg
+from bioplottemplates.libs import libmsg, libutil
 from bioplottemplates.logger import S, T
 
 
@@ -10,11 +13,11 @@ def plot(
         x_data,
         y_data,
         *,
-        label="No label provided",
+        labels="No label provided",
         suptitle=None,
-        x_label=None,
-        y_label=None,
-        color='blue',
+        xlabel=None,
+        ylabel=None,
+        colors='blue',
         alpha=0.7,
         grid=True,
         grid_color="lightgrey",
@@ -63,6 +66,19 @@ def plot(
     """
     log.info(T("Plotting parameter:"))
     
+    # prepares data in
+    y_data = np.array(y_data)
+    if y_data.ndim == 1:
+        y_data = y_data[np.newaxis, :]
+    
+    plot_labels = libutil.make_list(labels)
+    plot_colors = libutil.make_list(colors)
+    plot_colors = itertools.cycle(plot_colors)
+    
+    assert y_data.shape[0] == len(plot_labels), (
+        '{} vs {}'.format(y_data.shape[0], len(plot_labels)))
+    # done data preparation
+
     fig, ax = plt.subplots(nrows=1, ncols=1)
     
     plt.tight_layout(rect=[0.05, 0.02, 0.995, 0.985])
@@ -74,17 +90,18 @@ def plot(
         va="top",
         ha="center",
         )
-        
-    ax.plot(
-        x_data,
-        y_data,
-        label=label,
-        color=color,
-        alpha=alpha,
-        )
     
-    ax.set_xlabel(x_label, weight='bold')
-    ax.set_ylabel(y_label, weight='bold')
+    for yy, ll in zip(y_data, plot_labels):
+        ax.plot(
+            x_data,
+            yy,
+            label=ll,
+            color=next(plot_colors),
+            alpha=alpha,
+            )
+    
+    ax.set_xlabel(xlabel, weight='bold')
+    ax.set_ylabel(ylabel, weight='bold')
     
     ax.set_xlim(x_data[0], x_data[-1])
     ax.set_ylim(0)
