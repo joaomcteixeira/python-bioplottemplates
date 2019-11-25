@@ -14,10 +14,10 @@ def plot(
         y_data,
         *,
         labels="No label provided",
-        suptitle=None,
+        title=None,
         xlabel=None,
         ylabel=None,
-        colors='blue',
+        colors=('b', 'g', 'r', 'c', 'm', 'y', 'k'),
         alpha=0.7,
         grid=True,
         grid_color="lightgrey",
@@ -28,6 +28,7 @@ def plot(
         legend_fs=6,
         legend_loc=4,
         vert_lines=None,
+        figsize=(8, 6),
         filename='plot_param.pdf',
         **kwargs
         ):
@@ -63,6 +64,9 @@ def plot(
         in disk. Defaults to rmsd_individual_chains_one_subplot.pdf.
         You can change the file type by specifying its extention in
         the file name.
+    
+    fig_size : tuple of float or int
+        The size ratio of the subplot in the figure.
     """
     log.info(T("Plotting parameter:"))
     
@@ -79,12 +83,11 @@ def plot(
         '{} vs {}'.format(y_data.shape[0], len(plot_labels)))
     # done data preparation
 
-    fig, ax = plt.subplots(nrows=1, ncols=1)
-    
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=figsize)
     plt.tight_layout(rect=[0.05, 0.02, 0.995, 0.985])
     
     fig.suptitle(
-        suptitle,
+        title,
         x=0.5,
         y=0.990,
         va="top",
