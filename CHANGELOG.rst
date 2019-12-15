@@ -2,9 +2,11 @@
 Changelog
 =========
 
-0.0.4 (2019-10-xx)
+0.0.4 (2019-12-15)
 ------------------
 
+* Implemented :code:`cli_labeldots` and general `cli` interface
+* Implemented :code:`label_dots` plot template
 * Removed spellcheck from Travis-CI (`PR164`_)
 
 0.0.3 (2019-10-14)
