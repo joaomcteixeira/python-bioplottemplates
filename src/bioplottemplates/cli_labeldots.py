@@ -1,6 +1,6 @@
 import argparse
 
-from bioplottemplates.libs import libcli
+from bioplottemplates.libs import libcli, libio
 from bioplottemplates.plots import label_dots
 
 
@@ -33,15 +33,17 @@ def maincli():
     main(**vars(cmd))
 
 
-def main(csv_files, plot_params):
+def main(data_csv, plotvars, **kwargs):
     
-    labels = extract_labels(csv_files)
-    data = extract_data(csv_files)
+    data, labels = libio.extract_labels_data(*data_csv)
     
+    plotvars = plotvars or dict()
+    plotvars.setdefault('series_labels', data_csv)
+    print(plotvars['series_labels'])
     label_dots.plot(
         labels,
         data,
-        **plot_params,
+        **plotvars,
         )
 
     pass

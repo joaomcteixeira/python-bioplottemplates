@@ -1,5 +1,6 @@
 import sys
 
+from bioplottemplates import log
 from bioplottemplates import cli_labeldots
 from bioplottemplates.libs import libcli
 

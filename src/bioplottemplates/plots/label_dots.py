@@ -14,6 +14,10 @@ def plot(
         title=None,
         xlabel=None,
         ylabel=None,
+        series_labels=None,
+        legend=True,
+        legend_fs=6,
+        legend_loc=4,
         numeric_x_labels=False,
         colors=('b', 'g', 'r', 'c', 'm', 'y', 'k'),
         alpha=0.7,
@@ -33,10 +37,15 @@ def plot(
     # prepares data
     if isinstance(y_data, (list, np.ndarray)):
         if not isinstance(y_data[0], (list, np.ndarray)):
-            ydata = [y_data]
+            y_data = [y_data]
     else:
         raise ValueError('y_data must be list or np.ndarray')
-        
+    
+    if not isinstance(series_labels, list):
+        series_labels = [series_labels]
+    elif series_labels is None:
+        series_labels = [None] * len(y_data)
+
     plot_colors = itertools.cycle(libutil.make_list(colors))
     
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=figsize)
@@ -45,7 +54,7 @@ def plot(
     else:
         plt.tight_layout(rect=[0.05, 0.10, 0.995, 0.985])
 
-    for dataset in ydata:
+    for dataset in y_data:
         fig.suptitle(
             title,
             x=0.5,
@@ -55,13 +64,15 @@ def plot(
             )
     
     #ax.margins(x=1)
+    for i, yy in enumerate(y_data):
 
-    ax.scatter(
-        range(int(numeric_x_labels), int(numeric_x_labels) + len(y_data)),
-        y_data,
-        color=next(plot_colors),
-        alpha=alpha,
-        zorder=10)
+        ax.scatter(
+            range(int(numeric_x_labels), int(numeric_x_labels) + len(yy)),
+            yy,
+            label=series_labels[i],
+            color=next(plot_colors),
+            alpha=alpha,
+            zorder=10)
     
     
     ax.set_xlabel(xlabel, weight='bold')
@@ -84,6 +95,12 @@ def plot(
             linewidth=grid_lw,
             alpha=grid_alpha,
             zorder=1,
+            )
+    
+    if legend:
+        ax.legend(
+            fontsize=legend_fs,
+            loc=legend_loc,
             )
 
     fig.savefig(filename)
