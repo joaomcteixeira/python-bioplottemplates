@@ -1,28 +1,35 @@
-"""
-Module that contains the command line app.
+import sys
 
-Why does this file exist, and why not put this in __main__?
-
-  You might be tempted to import things from __main__ later,
-  but that will cause problems: the code will get executed twice:
-
-  - When you run `python -mbioplottemplates` python will execute
-    ``__main__.py`` as a script. That means there won't be any
-    ``bioplottemplates.__main__`` in ``sys.modules``.
-  - When you import __main__ it will get executed again (as a module) because
-    there's no ``bioplottemplates.__main__`` in ``sys.modules``.
-
-  Also see (1) from http://click.pocoo.org/5/setuptools/#setuptools-integration
-"""
-import argparse
+from bioplottemplates import cli_labeldots
+from bioplottemplates.libs import libcli
 
 
-parser = argparse.ArgumentParser(description='Command description.')
-parser.add_argument('names', metavar='NAME', nargs=argparse.ZERO_OR_MORE,
-                    help="A name of something.")
+def load_args():
+    ap = libcli.CustomParser()
+
+    subparsers = ap.add_subparsers(title='Plotting routines')
+
+    ap_labeldots = subparsers.add_parser(
+        'label_dots',
+        help='Plots multiple series with labeled X axis.',
+        parents=[cli_labeldots.ap],
+        add_help=False,
+        )
+    ap_labeldots.set_defaults(func=cli_labeldots.main)
+    
+    if len(sys.argv) < 2:
+        ap.print_help()
+        ap.exit()
+    
+    cmd = ap.parse_args()
+    return cmd
 
 
-def main(args=None):
-    """Run main logic."""
-    args = parser.parse_args(args=args)
-    print(args.names)
+def maincli():
+    args = load_args()
+    log.debug(args)
+    args.func(**vars(args))
+
+
+if __name__ == '__main__':
+    maincli()
