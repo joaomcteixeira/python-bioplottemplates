@@ -2,7 +2,7 @@
 Overview
 ========
 
-* this is an experimental project. *
+_this is an experimental project._
 
 .. start-badges
 
