@@ -1,8 +1,8 @@
 """Test the lib."""
 
-from bioplottemplates.cli import main
+from bioplottemplates.cli import maincli
 
 
-def test_main():
+def _test_main():
     """Test main cli."""
     main([])
