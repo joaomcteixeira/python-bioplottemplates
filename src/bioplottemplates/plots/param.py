@@ -19,6 +19,10 @@ def plot(
         ylabel=None,
         colors=('b', 'g', 'r', 'c', 'm', 'y', 'k'),
         alpha=0.7,
+        xmax=None,
+        xmin=None,
+        ymax=None,
+        ymin=None,
         grid=True,
         grid_color="lightgrey",
         grid_ls="-",
@@ -55,11 +59,13 @@ def plot(
         Container of the Y axis data.
         Where M is the RMSDs data for the combined chains.
     
-    label : str, optional
+    labels : str, optional
         The label to represent in plot legend.
+        If a list of series is provided, a list of labels
+        can be provided as well.
         Defauts to: "no labels provided".
     
-    fig_name : str, optional
+    filename : str, optional
         The file name with which the plot figure will be saved
         in disk. Defaults to rmsd_individual_chains_one_subplot.pdf.
         You can change the file type by specifying its extention in
@@ -93,7 +99,7 @@ def plot(
         va="top",
         ha="center",
         )
-    
+
     for yy, ll in zip(y_data, plot_labels):
         ax.plot(
             x_data,
@@ -106,8 +112,15 @@ def plot(
     ax.set_xlabel(xlabel, weight='bold')
     ax.set_ylabel(ylabel, weight='bold')
     
-    ax.set_xlim(x_data[0], x_data[-1])
-    ax.set_ylim(0)
+    # setting axes scales
+
+    xmin = xmin or x_data[0]
+    xmax = xmax or x_data[-1]
+    ymin = ymin or np.array(y_data).min()
+    ymax = ymax or np.array(y_data).max()
+
+    ax.set_xlim(xmin, xmax)
+    ax.set_ylim(ymin, ymax)
     
     if grid:
         ax.grid(
