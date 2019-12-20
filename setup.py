@@ -74,6 +74,7 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'matplotlib>=3',
+        'numpy>=1.17',
     ],
     extras_require={
         # eg:
