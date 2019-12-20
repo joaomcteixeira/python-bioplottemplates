@@ -1,6 +1,11 @@
-
 Changelog
 =========
+
+0.1.0 (2019-12-20)
+------------------
+
+* added `xmin`, `xmax`, `ymin` and `ymax` options in `plots.param.plot`.
+* Implemented client interface for :code:`param`.
 
 0.0.4 (2019-12-15)
 ------------------
