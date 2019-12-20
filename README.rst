@@ -66,9 +66,9 @@ _this is an experimental project._
     :alt: Supported implementations
     :target: https://pypi.org/project/bioplottemplates
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/joaomcteixeira/python-bioplottemplates/v0.0.4.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/joaomcteixeira/python-bioplottemplates/v0.1.0.svg
     :alt: Commits since latest release
-    :target: https://github.com/joaomcteixeira/python-bioplottemplates/compare/v0.0.4...master
+    :target: https://github.com/joaomcteixeira/python-bioplottemplates/compare/v0.1.0...master
 
 .. |PyPI-downloads| image:: https://img.shields.io/pypi/dd/bioplottemplates?label=PyPI%20download
     :alt: PyPI - Downloads
