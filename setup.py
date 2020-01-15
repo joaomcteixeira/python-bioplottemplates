@@ -25,7 +25,7 @@ def read(*names, **kwargs):
 
 setup(
     name='bioplottemplates',
-    version='0.1.0',
+    version='0.1.1',
     license='MIT',
     description='Plotting templates common in biological sciences.',
     long_description='%s\n%s' % (

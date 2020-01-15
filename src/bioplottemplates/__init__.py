@@ -40,4 +40,4 @@ class Path(type(_Path())):
         return os.fspath(self)
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
